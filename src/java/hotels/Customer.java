@@ -23,6 +23,9 @@ import javax.faces.context.FacesContext;
 @ApplicationScoped
 public class Customer {
 
+    /**
+     *
+     */
     public List<Customers> Customer;
     private Customers currentCustomers;
 
@@ -62,6 +65,8 @@ public class Customer {
 
     /**
      * Wipe the Customer list and update it from the DB
+     *
+     * @return
      */
     public List getCustomerFromDB() {
         try (Connection conn = DBJMPs.getConnection()) {
@@ -114,7 +119,6 @@ public class Customer {
      * Retrieve a Customers by ID
      *
      * @param first_name
-     * @param id the ID to search for
      * @return the Customers -- null if not found
      */
     public Customers getCustomersById(String first_name) {

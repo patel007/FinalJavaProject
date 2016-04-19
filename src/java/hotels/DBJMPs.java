@@ -19,8 +19,17 @@ import java.util.logging.Logger;
  * @author patel
  */
 public class DBJMPs {
+
+    /**
+     *
+     */
     public final static String SALT = "THISISArandomSTRINGofCHARACTERSusedTOsaltTHEpasswords";
-    
+
+    /**
+     *
+     * @param password
+     * @return
+     */
     public static String hash(String password) {
         try {
             String salted = password + SALT;
@@ -40,6 +49,11 @@ public class DBJMPs {
             return null;
         }
     }
+
+    /**
+     *
+     * @return @throws SQLException
+     */
     public static Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -50,7 +64,7 @@ public class DBJMPs {
         String hostname = "LocalHost";
         String port = "3306";
         String dbname = "hotels";
-        String username = "";
+        String username = "root";
         String password = "";
         String jdbc = String.format("jdbc:mysql://%s:%s/%s", hostname, port, dbname);
         return DriverManager.getConnection(jdbc, username, password);

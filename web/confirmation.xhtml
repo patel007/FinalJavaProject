@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      style="background: url(images/fd.jpg)">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+    <h:column>
+        <b><h:outputText value="First Name : "/></b>
+                    <f:facet name="header"><h:outputText value="First Name" />
+                    </f:facet>
+        <b><h:outputText value="#{customer.currentCustomers.first_name}"/></b>
+    </h:column><br/>
+        
+    <h:column>
+        <b><h:outputText value="E-mail : "/></b>
+                    <f:facet name="header"><h:outputText value="E-mail" />
+                    </f:facet>
+        <b><h:outputText value="#{customer.currentCustomers.email}"/></b>
+    </h:column><br/>
+        
+        
+     <h:column>
+         <b><h:outputText value="Check In : "/></b>
+                    <f:facet name="header"><h:outputText value="Check In" />
+                    </f:facet>
+        <b><h:outputText value="#{bookingRecord.currentBookingRecords.start_date}"/></b>
+    </h:column><br/>
+        
+    <h:column>
+        <b><h:outputText value="Check Out"/></b>
+                    <f:facet name="header"><h:outputText value="Check Out" />
+                    </f:facet>
+        <b><h:outputText value="#{bookingRecord.currentBookingRecords.end_date}"/></b>
+    </h:column><br/>
+        
+    <h:column>
+        <b><h:outputText value="Room Type"/></b>
+                    <f:facet name="header"><h:outputText value="Room Type" />
+                    </f:facet>
+        <b><h:outputText value="#{room.currentRooms.room_type}"/></b>
+    </h:column><br/>
+        
+    <h:column>
+        <b><h:outputText value="No. Of People"/></b>
+                    <f:facet name="header"><h:outputText value="No.Of People " />
+                    </f:facet>
+        <b><h:outputText value="#{room.currentRooms.num_of_people}"/></b>
+    </h:column><br/>
+
+
+    <p><b><i>Thank you for booking with us....</i></b></p>
+    <p><b><i>Enjoy your stay...</i></b></p>
+    </h:body>
+</html>
+

@@ -1,34 +1,40 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      style="background: url(images/hotel1.jpg);">
     <h:head>
-        <title>Login</title>
+        <meta charset='utf-8'></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="styles.css"></link>
+
+
+        <title>Hotel PMJ's</title>
     </h:head>
     <h:body>
-        <h:form>
-            <p>Book Now</p>		
-        <h:column>
-            <h:outputText styleClass="cl" value="Username"/>
-            <h:inputText id="location" class="form-control" value="#{bookingRecord.currentBookingRecords.location}"/>
-        </h:column>
-                        
-        <h:column>
-            <h:outputText styleClass="cl" value="Password"/>
-            <h:inputText id="arrive" class="form-control" value="#{bookingRecord.currentBookingRecords.start_date}"/>
-	</h:column>
-                        
-    <h:column>
-            <h:outputText styleClass="cl" value="Departure"/>
-            <h:inputText id="depature" class="form-control" value="#{bookingRecord.currentBookingRecords.end_date}"/>
-	</h:column>
-			
-                   
-    <h:commandButton action="#{room.addRooms()}" value="next">
-        
-    </h:commandButton>       
-           
+
+
+        <h:form class="check">
+
+            <h:column>
+                <h:outputText value="Username"/>
+                <h:inputText id="username" class="form-control" value="#{customer.currentCustomers.email}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="Password"/>
+                <h:inputText id="password" class="form-control" value="#{customer.currentCustomers.password}"/>
+            </h:column>
+            <h:column>
+                <h:message for=""></h:message>
+            </h:column>
+
+            <h:commandButton value="Login" action="#{customer.login()}" />                   
         </h:form>
+
+
+
+
     </h:body>
 </html>
 

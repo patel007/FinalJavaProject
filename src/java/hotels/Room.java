@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 @ManagedBean
 @ApplicationScoped
 public class Room {
-    
+
     private List<Rooms> Room;
     private Rooms currentRooms;
 
@@ -28,7 +28,7 @@ public class Room {
      * No-arg Constructor -- sets up list from DB
      */
     public Room() {
-        currentRooms = new Rooms(-1, -1, "", -1);
+        currentRooms = new Rooms("", -1);
         getRoomFromDB();
     }
 
@@ -42,13 +42,10 @@ public class Room {
             ResultSet rs = stmt.executeQuery("SELECT * FROM Rooms");
             while (rs.next()) {
                 Rooms r;
-                r = new Rooms
-                        (
-                                rs.getInt("room_id"),
-                                rs.getInt("room_num"),
-                                rs.getString("room_type"),
-                                rs.getInt("num_of_people")
-                        );
+                r = new Rooms(
+                        rs.getString("room_type"),
+                        rs.getInt("num_of_people")
+                );
                 Room.add(r);
             }
         } catch (SQLException ex) {
@@ -79,12 +76,13 @@ public class Room {
     /**
      * Retrieve a Rooms by ID
      *
-     * @param room_id    
+     * @param room_type
+     *
      * @return the Rooms -- null if not found
      */
-    public Rooms getRoomsByRoomId(int room_id) {
-        for (Rooms r : Room) {           
-            if (r.getRoom_id() == room_id) {
+    public Rooms getRoomsByRoomId(String room_type) {
+        for (Rooms r : Room) {
+            if (r.getRoom_type().equals(room_type)) {
                 return r;
             }
         }
@@ -94,12 +92,13 @@ public class Room {
     /**
      * Retrieve a Rooms by title
      *
-     * @param room_num     
+     * @param num_of_people
+     *
      * @return the Rooms -- null if not found
      */
-    public Rooms getRoomsByRoomNum(int room_num) {
-        for (Rooms r : Room) {           
-            if (r.getRoom_num() == room_num) {
+    public Rooms getRoomsByRoomNum(int num_of_people) {
+        for (Rooms r : Room) {
+            if (r.getNum_of_people() == num_of_people) {
                 return r;
             }
         }
@@ -123,8 +122,21 @@ public class Room {
      * @return the navigation rule
      */
     public String addRooms() {
-       currentRooms = new Rooms(-1, -1, "", -1);
-       return "editRooms";
+        Connection conn;
+
+        try {
+            conn = DBJMPs.getConnection();
+            String sql = "insert into rooms(room_type, num_of_people) values (?,?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(3, currentRooms.getRoom_type());
+            ps.setInt(4, currentRooms.getNum_of_people());
+            ps.executeUpdate();
+            getRoomFromDB();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "feedback";
     }
 
     /**
@@ -143,25 +155,28 @@ public class Room {
      */
     public String cancelRooms() {
         // currentRooms can be corrupted -- reset it based on the DB
-        int room_id = currentRooms.getRoom_id();
+        String room_type = currentRooms.getRoom_type();
         getRoomFromDB();
-        currentRooms = getRoomsByRoomId(room_id);
+        currentRooms = getRoomsByRoomId(room_type);
         return "viewRooms";
     }
-    
-    public int count_room(){
+
+    /**
+     *
+     * @return
+     */
+    public int count_room() {
         try {
             Connection conn;
-            
-            conn=DBJMPs.getConnection();
-            
+
+            conn = DBJMPs.getConnection();
+
             Statement s = conn.createStatement();
             try (ResultSet r = s.executeQuery("SELECT COUNT(*) AS room_num FROM Rooms")) {
                 r.next();
-                int count = r.getInt("room_num") ;
+                int count = r.getInt("room_num");
             }
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Room.class.getName()).log(Level.SEVERE, null, ex);
         }

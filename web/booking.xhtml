@@ -1,78 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" 
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      style="background: url(images/hotel.png)">
-    <h:head>          
-        <meta charset='utf-8'></meta>
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-            
-        <title>Booking Page</title>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      style="background: url(images/room.jpg)">
+    <h:head>
+        <title>Booking page</title>
     </h:head>
     <h:body>
-<h:form  class="booking"><br/>
-			
-    
-    <p>Continue booking</p>
-           
-    <h:column>
-            <h:outputText value="First Name"/>
-            <h:inputText id="first_name" class="form-control" value="#{customer.currentCustomers.first_name}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Last Name"/>
-            <h:inputText id="last_name" class="form-control" value="#{customer.currentCustomers.last_name}"/>
-	</h:column>
+        <h:form>
+            <p>Book Now</p>		
+            <h:column>
+                <h:outputText styleClass="cl" value="Location"/>
+                <h:inputText id="location" class="form-control" value="#{bookingRecord.currentBookingRecords.location}"/>
+            </h:column>
 
-        <h:column>
-            <h:outputText value="Contact No."/>
-            <h:inputText id="phone_num" class="form-control" value="#{customer.currentCustomers.phone_num}"/>
-	</h:column>
+            <h:column>
+                <h:outputText styleClass="cl" value="Check In"/>
+                <h:inputText id="arrive" class="form-control" value="#{bookingRecord.currentBookingRecords.start_date}"/>
+            </h:column>
 
-        <h:column>
-            <h:outputText value="Email"/>
-            <h:inputText id="email" class="form-control" value="#{customer.currentCustomers.email}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Address Line1"/>
-            <h:inputText id="address_line1" class="form-control" value="#{customer.currentCustomers.address_line1}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Address Line2"/>
-            <h:inputText id="address_line2" class="form-control" value="#{customer.currentCustomers.address_line2}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="City"/>
-            <h:inputText id="city" class="form-control" value="#{customer.currentCustomers.city}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Province"/>
-            <h:inputText id="province" class="form-control" value="#{customer.currentCustomers.province}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Country"/>
-            <h:inputText id="country" class="form-control" value="#{customer.currentCustomers.country}"/>
-	</h:column>
-	
-        <h:column>
-            <h:outputText value="Postal Code"/>
-            <h:inputText id="postal_code" class="form-control" value="#{customer.currentCustomers.postal_code}"/>
-	</h:column>
-    
-	<h:column>
-            <h:commandButton type="submit" value="Book Now" class="button" />
-	</h:column>
+            <h:column>
+                <h:outputText styleClass="cl" value="Check Out"/>
+                <h:inputText id="depature" class="form-control" value="#{bookingRecord.currentBookingRecords.end_date}"/>
+            </h:column>
 
-</h:form>
+
+            <h:commandButton action="room" value="next"/>
+
+
+
+        </h:form>
     </h:body>
 </html>
 

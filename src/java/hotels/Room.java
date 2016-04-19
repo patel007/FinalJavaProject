@@ -39,7 +39,7 @@ public class Room {
         try (Connection conn = DBJMPs.getConnection()) {
             Room = new ArrayList<>();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Rooms");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM rooms");
             while (rs.next()) {
                 Rooms r;
                 r = new Rooms(
@@ -128,8 +128,8 @@ public class Room {
             conn = DBJMPs.getConnection();
             String sql = "insert into rooms(room_type, num_of_people) values (?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(3, currentRooms.getRoom_type());
-            ps.setInt(4, currentRooms.getNum_of_people());
+            ps.setString(1, currentRooms.getRoom_type());
+            ps.setInt(2, currentRooms.getNum_of_people());
             ps.executeUpdate();
             getRoomFromDB();
 

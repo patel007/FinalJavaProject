@@ -1,8 +1,15 @@
+
+h1
+{
+	text-align:center;	
+	font-size:3em;
+	color:#00ffff;
+}
 form{
 	width:80%;
 	margin-left:30%;
 	margin-top:2%;
-	color:black;
+	color:#ff9900;
 	padding:10px;
 	font-size:1.75em;	
 }
@@ -32,5 +39,6 @@ text{
 }
 p 
 {
+        color:#ff3300;
 	font-size:2em;
 }

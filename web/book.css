@@ -1,10 +1,15 @@
 /* book */
 
+h1
+{
+	text-align:center;	
+	font-size:3em;
+	color:#00ffff;
+}
 form{
 	width:40%;
-	margin-left:30%;
-	margin-top:10%;
-	color:#0000FF;
+	margin-left:30%;	
+	color:#006600;
 	font-size:1.75em;	
 }
 input:focus,textarea:focus

@@ -1,38 +1,38 @@
 
 h1
 {
-	text-align:center;	
-	font-size:3em;
-	color:#00ffff;
+    text-align:center;	
+    font-size:3em;
+    color:#00ffff;
 }
 form{
-	width:40%;
-	margin-left:30%;
-	margin-top:10%;
-	color:#006600;
-	font-size:1.75em;	
+    width:40%;
+    margin-left:30%;
+    margin-top:10%;
+    color:#006600;
+    font-size:1.75em;	
 }
 input:focus,textarea:focus
 {
-	background-color:rgb(238,250,253);
+    background-color:rgb(238,250,253);
 }
 input{
-		display:block;
-		text-align:left;
-		font-size:0.5em;
-		width:55%;		
-		margin-bottom:20px;
-	}
-	input[type="submit"]
+    display:block;
+    text-align:left;
+    font-size:0.5em;
+    width:55%;		
+    margin-bottom:20px;
+}
+input[type="submit"]
 {
-	float:center;
-	width:30%;
-	height:15px;
-	padding:25px;
-	margin-top:20px;
-	margin-bottom:20px;
-	margin-right:100px;	
-	font-size:.75em;
-	border-radius:15px;
-	text-align:center;
+    float:center;
+    width:30%;
+    height:15px;
+    padding:25px;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-right:100px;	
+    font-size:.75em;
+    border-radius:15px;
+    text-align:center;
 }

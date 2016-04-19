@@ -5,10 +5,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       style="background: url(images/fd.jpg)">
     <h:head>
-        <title>Facelet Title</title>
+        <title>confirm Page</title>
+        <link href="confirm.css" rel="stylesheet"/>
     </h:head>
     <h:body>
-
+        <h:form>
         <h:column>
             <b><h:outputText value="First Name : "/></b>
             <f:facet name="header"><h:outputText value="First Name" />
@@ -39,22 +40,24 @@
         </h:column><br/>
 
         <h:column>
-            <b><h:outputText value="Room Type"/></b>
+            <b><h:outputText value="Room Type : "/></b>
             <f:facet name="header"><h:outputText value="Room Type" />
             </f:facet>
             <b><h:outputText value="#{room.currentRooms.room_type}"/></b>
         </h:column><br/>
 
         <h:column>
-            <b><h:outputText value="No. Of People"/></b>
+            <b><h:outputText value="No. Of People :"/></b>
             <f:facet name="header"><h:outputText value="No.Of People " />
             </f:facet>
             <b><h:outputText value="#{room.currentRooms.num_of_people}"/></b>
         </h:column><br/>
 
-
         <p><b><i>Thank you for booking with us....</i></b></p>
-        <p><b><i>Enjoy your stay...</i></b></p>
+        <p><b><i>Enjoy your stay...</i></b></p>        
+        
+        <h:commandButton value="Close" action="login" />  
+        </h:form>
     </h:body>
 </html>
 

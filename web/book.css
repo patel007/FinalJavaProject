@@ -1,12 +1,10 @@
-/* booking style */
-
-
+/* book */
 
 form{
 	width:40%;
 	margin-left:30%;
 	margin-top:10%;
-	color:white;
+	color:#0000FF;
 	font-size:1.75em;	
 }
 input:focus,textarea:focus
@@ -17,11 +15,10 @@ input{
 		display:block;
 		text-align:left;
 		font-size:0.5em;
-		width:55%;
-		
+		width:65%;		
 		margin-bottom:20px;
 	}
-input[type="submit"]
+	input[type="submit"]
 {
 	float:center;
 	width:30%;

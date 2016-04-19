@@ -9,7 +9,7 @@
         <meta charset='utf-8'></meta>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-
+        <link href="room.css" rel="stylesheet"/>
         <title>Customer Page</title>
     </h:head>
     <h:body>
@@ -19,12 +19,12 @@
             <p>Continue booking</p>
 
             <h:column>         
-                <h:outputText value="type" />
+                <h:outputText value="TYPE" />
                 <h:inputText id="room_type" class="form-control" value="#{room.currentRooms.room_type}"/>
             </h:column>
 
             <h:column>
-                <h:outputText value="No. Of People"/>
+                <h:outputText value="No.Of People"/>
                 <h:inputText id="num_of_people" class="form-control" value="#{room.currentRooms.num_of_people}"/>
             </h:column>
 

@@ -5,27 +5,28 @@
       style="background: url(images/room.jpg)">
     <h:head>
         <title>Booking page</title>
+        <link href="book.css" rel="stylesheet"/>
     </h:head>
     <h:body>
         <h:form>
-            <p>Book Now</p>		
+            <p><b>Book Now</b></p>		
             <h:column>
-                <h:outputText styleClass="cl" value="Location"/>
+               <b> <h:outputText styleClass="cl" value="Location"/></b>
                 <h:inputText id="location" class="form-control" value="#{bookingRecord.currentBookingRecords.location}"/>
             </h:column>
 
             <h:column>
-                <h:outputText styleClass="cl" value="Check In"/>
+                <b><h:outputText styleClass="cl" value="Check In"/></b>
                 <h:inputText id="arrive" class="form-control" value="#{bookingRecord.currentBookingRecords.start_date}"/>
             </h:column>
 
             <h:column>
-                <h:outputText styleClass="cl" value="Check Out"/>
+                <b><h:outputText styleClass="cl" value="Check Out"/></b>
                 <h:inputText id="depature" class="form-control" value="#{bookingRecord.currentBookingRecords.end_date}"/>
             </h:column>
 
 
-            <h:commandButton action="room" value="next"/>
+            <h:commandButton action="room" value="Next"/>
 
 
 
